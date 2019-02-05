@@ -8,10 +8,9 @@ package com.amura.pojo;
  * of the subarray with largest sum
  */
 public class Pair {
-	int start, end;
+	private int start, end;
 
-	public Pair() {
-	}
+	public Pair() {}
 
 	public Pair(int start, int end) {
 		super();
@@ -25,6 +24,14 @@ public class Pair {
 
 	public int getEnd() {
 		return end;
+	}
+	
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
 	}
 
 	@Override

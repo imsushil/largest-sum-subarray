@@ -14,6 +14,32 @@ import com.amura.pojo.Pair;
  */
 public class LargestSumSubarray {
 
+	// *************************
+	// Private methods
+	// *************************
+	/**
+	 * This method finds the subarray with minimum length among all the
+	 * subarrays with largest sum from the list of Pair which stores start and
+	 * end indexes as Pair
+	 */
+	private Pair findSubarrayWithMinimumSize(List<Pair> listOfPair) {
+		int minimumLength = Integer.MAX_VALUE, startIndex = 0, endIndex = 0, temp_start, temp_end;
+		for (Pair p : listOfPair) {
+			temp_start = p.getStart();
+			temp_end = p.getEnd();
+			if ((temp_end - temp_start) < minimumLength) {
+				minimumLength = temp_end - temp_start;
+				startIndex = temp_start;
+				endIndex = temp_end;
+			}
+		}
+		return new Pair(startIndex, endIndex);
+	}
+	
+	
+	// *************************
+	// Public methods
+	// *************************
 	/**
 	 * Logic for finding subarray with the largest sum
 	 * accepts array of integers
@@ -77,25 +103,6 @@ public class LargestSumSubarray {
 		listOfPair.add(new Pair(startIndex, endIndex)); // if answer (subarray) is at the end
 		Pair ans = findSubarrayWithMinimumSize(listOfPair);
 		return ans;
-	}
-
-	/**
-	 * This method finds the subarray with minimum length among all the
-	 * subarrays with largest sum from the list of Pair which stores start and
-	 * end indexes as Pair
-	 */
-	public Pair findSubarrayWithMinimumSize(List<Pair> listOfPair) {
-		int minimumLength = Integer.MAX_VALUE, startIndex = 0, endIndex = 0, temp_start, temp_end;
-		for (Pair p : listOfPair) {
-			temp_start = p.getStart();
-			temp_end = p.getEnd();
-			if ((temp_end - temp_start) < minimumLength) {
-				minimumLength = temp_end - temp_start;
-				startIndex = temp_start;
-				endIndex = temp_end;
-			}
-		}
-		return new Pair(startIndex, endIndex);
 	}
 
 	/**
