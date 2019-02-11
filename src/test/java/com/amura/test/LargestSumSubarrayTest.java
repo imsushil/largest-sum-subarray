@@ -77,8 +77,8 @@ public class LargestSumSubarrayTest {
 	}
 	
 	/**
-	 * Two subarrays are present having sum 10.
-	 * [5, 6, 4] and [7, 8] and [15]
+	 * Three subarrays are present having sum 10.
+	 * [4, 2, 4] and [1, 9] and [10]
 	 * 
 	 * Start Index: 10
 	 * Length: 1
@@ -90,6 +90,21 @@ public class LargestSumSubarrayTest {
 		int[] a = {-2, 4, 2, 4, -13, -1, 1, 9, -5, -6, 10, 0};
 		Pair p = largestSumSubarrayObj.solve(a);
 		Assert.assertEquals(p, new Pair(10, 10));
+	}
+	
+	
+	/**
+	 * 
+	 * Start Index: 3
+	 * Length: 4
+	 * Sum: 6
+	 * Elements: 4 -1 2 1
+	 */
+	@Test
+	public void solveTest_6() {
+		int[] a = {2, 1, -3, 4, -1, 2, 1, -5, 4};
+		Pair p = largestSumSubarrayObj.solve(a);
+		Assert.assertEquals(p, new Pair(3, 6));
 	}
 	
 }

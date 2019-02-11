@@ -80,11 +80,22 @@ public class LargestSumSubarray {
 					flag = 1;
 				}
 			} else if (current_maximum > 0) {
-				// set current starting index(current_start) to the index(i) when first positive value found
-				if (f == 0) {
-					current_start = i;
-					f = 1;
+				if (f == 0) { // first positive value found
+					current_start = i; // set current starting index(current_start) to the index(i)
+					/*
+					 * set f so that it won't set current starting index again when current sum keeps increasing
+					 * for the current subarray.
+					 * It will set current starting index only when current_maximum had gone below zero previously 
+					 * and now the current_maximum is greater than 0   
+					 */
+					f = 1; 
 				}
+			} else { // when current sum is 0 
+				/*
+				 *  reset f so that we can set current starting index(current_start) to the index(i) 
+				 *  when first positive value found
+				 */
+				f = 0;
 			}
 
 			if (current_maximum > maximumSoFar) { // maximum sum found
